@@ -1,52 +1,54 @@
-import { request } from "../../request/index.js";
-import regeneratorRuntime from "../../lib/runtime/runtime.js";
+//index.js
+//获取应用实例
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    swiperList: [],
-    catesList: [],
-    floorList: []
+    motto: 'Hello World',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-    this.getSwiperList();
-    this.getCatesList();
-    this.getFloorList();
-  },
-
-  /**
-   * 获取轮播图数据
-   */
-  async getSwiperList() {
-    const result = await request({url: '/home/swiperdata'});
-    this.setData({
-      swiperList: result
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
     })
   },
-
-  /**
-   * 获取导航数据
-   */
-  async getCatesList() {
-    const result = await request({url: '/home/catitems'});
-    this.setData({
-      catesList: result
-    })
+  onLoad: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse){
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
   },
-
-  /**
-   * 获取楼层数据
-   */
-  async getFloorList() {
-    const result = await request({url: '/home/floordata'});
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
     this.setData({
-      floorList: result
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
     })
   }
 })
