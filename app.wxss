@@ -1,2 +1,17 @@
 /**引入字体图标**/
-@import"./styles/iconfont.wxss"
+@import"./styles/iconfont.wxss";
+/* 初始化 */
+page,view,text,swiper,swiper-item,image,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* 
+主题颜色 通过变量来实现
+1 less中存在变量这个只是
+2 原生的css和wxss也是支持变量
+*/
+page{
+  --themeColor:#eb4450;
+  font-size: 28rpx;
+}
