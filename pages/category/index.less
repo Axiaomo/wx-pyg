@@ -1,0 +1,57 @@
+.cates_container {
+  display: flex;
+
+  .left_menu {
+    height: ~'calc(100vh - 90rpx)';
+    flex: 2;
+
+    .menu_item {
+      height: 80rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30rpx;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .menu_item.active {
+      color: var(--themeColor);
+      border-left: 5rpx solid var(--themeColor);
+    }
+  }
+
+  .right_content {
+    flex: 5;
+    height: ~'calc(100vh - 90rpx)';
+    .content_title {
+      font-size: 32rpx;
+      font-weight: bold;
+      color: #666;
+      padding: 20rpx;
+      display: flex;
+      justify-content: center;
+    }
+
+    .decoration {
+      margin: 0 10px;
+    }
+
+    .content_list {
+      display: flex;
+      flex-wrap: wrap;
+
+      navigator {
+        width: 33.3%;
+        display: flex;
+        padding: 10rpx 20rpx;
+        flex-direction: column;
+        align-items: center;
+        text{
+          color: #999;
+        }
+      }
+    }
+  }
+
+
+}
