@@ -20,14 +20,14 @@ Page({
   },
   /* 轮播图 */
   async getSwiperList() {
-    let result = await request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata' });
+    let result = await request({ url: '/home/swiperdata' });
     this.setData({
       swiperList: result.data.message
     })
   },
   /* 导航 */
   async getCatesList(){
-    let result=await request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/catitems"});
+    let result=await request({url:"/home/catitems"});
     this.setData({
       catesList:result.data.message
     })

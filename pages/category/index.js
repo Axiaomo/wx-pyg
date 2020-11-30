@@ -22,7 +22,7 @@ Page({
   },
   /* 获取数据 */
   async getCates() {
-    let result = await request({ url: "https://api-hmugo-web.itheima.net/api/public/v1/categories" });
+    let result = await request({ url: "/categories" });
     this.Cates = result.data.message;
     // 构造左侧大数据菜单
     let leftMenuList = this.Cates.map(v => v.cat_name);
@@ -34,7 +34,6 @@ Page({
   },
   // 点击左侧切换
   async handleItemTap(e) {
-    console.log(e);
     const currentIndex = e.currentTarget.dataset.index;
     let rightContent=this.Cates[currentIndex].children;
     this.setData({
