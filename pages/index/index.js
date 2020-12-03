@@ -22,21 +22,21 @@ Page({
   async getSwiperList() {
     let result = await request({ url: '/home/swiperdata' });
     this.setData({
-      swiperList: result.data.message
+      swiperList: result
     })
   },
   /* 导航 */
   async getCatesList(){
     let result=await request({url:"/home/catitems"});
     this.setData({
-      catesList:result.data.message
+      catesList:result
     })
   },
   /* 楼层数据 */
   async getFloorList(){
-    let result=await request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/floordata"});
+    let result=await request({url:"/home/floordata"});
     this.setData({
-      floorList:result.data.message
+      floorList:result
     })
   },
 })

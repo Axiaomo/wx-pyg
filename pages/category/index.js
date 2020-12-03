@@ -44,7 +44,7 @@ Page({
   /* 获取数据 */
   async getCates() {
     let result = await request({ url: "/categories" });
-    this.Cates = result.data.message;
+    this.Cates = result;
     // 数据缓存
     wx.setStorageSync('cates', { time: Date.now(), data: this.Cates })
     // 构造左侧大数据菜单
