@@ -6,6 +6,6 @@
     </view>
   </view>
   <view class="tabs_content">
-    111
+   <slot></slot>
   </view>
 </view>

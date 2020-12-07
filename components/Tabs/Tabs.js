@@ -23,7 +23,6 @@ Component({
   methods: {
     // 点击事件
     handleItemTap(e){
-      console.log(e.currentTarget.dataset.index);
       // 1 获取点击的索引
       const {index}=e.currentTarget.dataset;
       // 2 触发 父组件中的事件
