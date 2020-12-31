@@ -9,7 +9,8 @@ Page({
   data: {
     goodsDetail: {},
   },
-
+  // 商品详情数据
+  GoodsDetail: {},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -24,6 +25,7 @@ Page({
     const result = await request({
       url: '/goods/detail?goods_id=' + id
     });
+    this.GoodsDetail = result;
     this.setData({
       goodsDetail: {
         pics: result.pics,
@@ -33,5 +35,15 @@ Page({
         goods_introduce: result.goods_introduce.replace(/\.webp/g, '.jpg')
       }
     })
+  },
+  // 点击轮播图放大预览
+  handlePrevewImage(e) {
+    const urls = this.GoodsDetail.pics.map(v => v.pics_mid);
+    const current = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls,
+      current
+    })
   }
+
 })
