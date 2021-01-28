@@ -1,1 +1,16 @@
-/* pages/cart/index.wxss */
+/* 收获地址 */
+.revice_address_row {
+  border-bottom: 10rpx solid #eee;
+}
+.revice_address_row .address_title {
+  font-size: 34rpx;
+  font-weight: bold;
+  padding: 10rpx;
+  border: 1rpx solid #ccc;
+}
+.revice_address_row .adress_btn {
+  padding: 20rpx;
+}
+.revice_address_row .adress_btn button {
+  width: 60%;
+}

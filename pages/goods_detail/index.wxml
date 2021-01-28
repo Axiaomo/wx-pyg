@@ -52,6 +52,6 @@
     <view class="iconfont icon-gouwuche"></view>
     <text> 购物车 </text>
   </navigator>
-  <view class="tool_item btn_car"> 加入购物车 </view>
+  <view class="tool_item btn_car" bindtap="handleCartAdd"> 加入购物车 </view>
   <view class="tool_item btn_buy"> 立即购买 </view>
 </view>

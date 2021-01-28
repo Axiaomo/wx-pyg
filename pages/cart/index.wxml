@@ -1,2 +1,18 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- 收获地址 -->
+<view class="revice_address_row">
+  <view class="address_title">收货地址 </view>
+  <!-- 收货地址不存在 -->
+  <view class="address_btn" wx:if="{{ !addressInfo.userName }}">
+    <button type="primary" plain bindtap="handleChooseAddress">
+      获取收获地址
+    </button>
+  </view>
+  <!-- 收货地址存在 -->
+  <view class="user_info_row">
+    <view class="user_info">
+      <view> {{ addressInfo.userName }}</view>
+      <view>{{ addressInfo.all }}</view>
+    </view>
+    <view class="user_phone">{{ addressInfo.telNumber }}</view>
+  </view>
+</view>
