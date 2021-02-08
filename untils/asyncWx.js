@@ -35,3 +35,15 @@ export const chooseAddress = () => {
     });
   });
 };
+export const showModal = () => {
+  return new Promise((resolve, reject) => {
+    wx.showModal({
+      title: '提示',
+      success(res) {
+        resolve(res)
+      }, fail(error) {
+        reject(error)
+      }
+    })
+  })
+}
